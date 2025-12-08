@@ -1,64 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAP Tech Services | Datasphere | SAC | BDC | BO</title>
+  <meta charset="UTF-8">
+  <title>TechServices | SAP Consulting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
-    body { margin:0; font-family: Arial, sans-serif; color:#222; line-height:1.6; }
-    header { background:#0a2540; color:#fff; padding:60px 20px; }
-    .hero { display:flex; align-items:center; gap:24px; max-width:1000px; margin:0 auto; }
-    .hero-img { width:120px; height:120px; border-radius:50%; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.3); border:3px solid rgba(255,255,255,0.08); }
-    .hero-content { text-align:left; }
-    header h1 { font-size:36px; margin:0 0 8px 0; }
-    header p { font-size:18px; opacity:0.95; margin:0; }
-    section { padding:50px 20px; max-width:1000px; margin:auto; }
-    h2 { color:#0a2540; margin-bottom:15px; }
-    .services div { background:#f5f7fa; padding:20px; border-radius:10px; margin-bottom:20px; }
-    .contact-box { background:#0a2540; color:#fff; padding:30px; border-radius:10px; }
-    a.button { display:inline-block; margin-top:15px; padding:12px 25px; background:#ff7a00; color:#fff; text-decoration:none; border-radius:5px; font-weight:bold; }
-    footer { text-align:center; padding:20px; background:#f0f0f0; margin-top:40px; }
-    @media (max-width:700px) {
-      .hero { flex-direction:column; text-align:center; padding:20px 0; }
-      .hero-content { text-align:center; }
-      .hero-img { width:100px; height:100px; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #0a3d62, #1e90ff);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    nav {
+      background: #002b5c;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .about {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    footer {
+      background: #002b5c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
-<body>
- <!-- HEADER -->
-  <header>
-    <div class="hero">
-      <img class="hero-img" src="../images/arvind.jpeg" alt="Arvind">
-      <div class="hero-content">
-    <h1>Implementation • Support • Training • Staffing</h1>
- 	<P>SAP Business Data Cloud, SAP Datasphere, SAP Analytics Clouds, SAP Business Objects</P>
-      </div>
-    </div>
-  </header>
-  <!-- PageUnderConstruction -->
-    <section>
-    <p align="Center"><B>Page Under Construction</B>
-    </p> 
-    </section>  
 
-  <!-- CONTACT -->
-  <section>
-    <h2>Contact</h2>
-    <div class="contact-box">
-      <p><strong>Email:</strong> asharma@techservices.co.in</p>
-      <p><strong>Phone:</strong> +91‑9950280631</p>
-      <a class="button" href="mailto:asharma@techservices.co.in">Book a Free Consultation</a>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>TechServices</h1>
+    <p>SAP Analytics | Datasphere | SAC Consulting Experts</p>
+  </header>
+<!-- Profile Section -->
+<section style="max-width:1100px;margin:auto;padding:40px 20px;text-align:center;">
+  <img src="../images/arvind.jpeg" 
+       alt="Arvind Sharma" 
+       style="width:180px;height:180px;border-radius:50%;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+  
+  <h2 style="margin-top:15px;">Arvind Sharma</h2>
+  <p style="color:#555;font-size:18px;">
+    SAP Analytics Consultant | Datasphere | SAC | BW/4HANA
+  </p>
+</section>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our SAP Consulting Services</h2>
+    <div class="services">
+      <div class="card">SAP Datasphere</div>
+      <div class="card">SAP Analytics Cloud (SAC) Planning and Analytics</div>
+      <div class="card">SAP Business Objects</div>
+      <div class="card">Support & Managed Services</div>
     </div>
   </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about">
+      <p>
+        We are a specialized SAP Analytics consulting team delivering enterprise-grade 
+        solutions using SAP Datasphere, SAP Analytics Cloud, SAP Business Objects to help organizations make data-driven decisions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="about">
+      <p>Email: asharma@techservices.co.in</p>
+      <p>Phone: +91-9950280631</p>
+      </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    © 2025 SAP Analytics Tech Services
+    <p>© 2025 TechServices. All Rights Reserved.</p>
   </footer>
+
 </body>
-
 </html>
-
-
-
-
-
