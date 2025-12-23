@@ -1,59 +1,389 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAP Tech Services | Datasphere | SAC | BDC | BO</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SAP Analytics Consulting Services | SAP Datasphere, SAC & BusinessObjects | TechServices</title>
+  <meta name="description" content="TechServices is a SAP analytics consulting firm providing SAP Datasphere, SAP Analytics Cloud (planning and reporting), SAP Business Data Cloud, SAP BusinessObjects, and S/4HANA Embedded Analytics implementation, migration, and support services." />
+<meta name="author" content="Arvind Sharma / TechServices" />
+  <link rel="icon" href="favicon.ico" />
   <style>
-    body { margin:0; font-family: Arial, sans-serif; color:#222; line-height:1.6; }
-    header { background:#0a2540; color:#fff; padding:60px 20px; }
-    .hero { display:flex; align-items:center; gap:24px; max-width:1000px; margin:0 auto; }
-    .hero-img { width:120px; height:120px; border-radius:50%; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.3); border:3px solid rgba(255,255,255,0.08); }
-    .hero-content { text-align:left; }
-    header h1 { font-size:36px; margin:0 0 8px 0; }
-    header p { font-size:18px; opacity:0.95; margin:0; }
-    section { padding:50px 20px; max-width:1000px; margin:auto; }
-    h2 { color:#0a2540; margin-bottom:15px; }
-    .services div { background:#f5f7fa; padding:20px; border-radius:10px; margin-bottom:20px; }
-    .contact-box { background:#0a2540; color:#fff; padding:30px; border-radius:10px; }
-    a.button { display:inline-block; margin-top:15px; padding:12px 25px; background:#ff7a00; color:#fff; text-decoration:none; border-radius:5px; font-weight:bold; }
-    footer { text-align:center; padding:20px; background:#f0f0f0; margin-top:40px; }
-    @media (max-width:700px) {
-      .hero { flex-direction:column; text-align:center; padding:20px 0; }
-      .hero-content { text-align:center; }
-      .hero-img { width:100px; height:100px; }
+    :root{
+      --blue-900:#002b5c;
+      --blue-700:#0a66b2;
+      --accent:#1e90ff;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --bg:#f4f6f8;
+      --radius:12px;
+      --container:1100px;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#111;line-height:1.5}
+    .wrap{max-width:var(--container);margin:0 auto;padding:28px;}
+    header.site{background:linear-gradient(90deg,var(--blue-900),var(--blue-700));color:#fff;padding:36px 0;border-bottom:4px solid rgba(255,255,255,0.06)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--container);margin:0 auto;padding:0 22px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{width:56px;height:56px;border-radius:8px;object-fit:cover;background:#fff;padding:4px}
+    .brand h1{font-size:20px;margin:0}
+    nav a{color:rgba(255,255,255,0.92);text-decoration:none;margin-left:18px;font-weight:600}
+    .hero{display:flex;flex-wrap:wrap;align-items:center;gap:28px;padding:28px 22px}
+    .hero .left{flex:1;min-width:280px}
+    .hero h2{font-size:32px;margin:0 0 12px}
+    .hero p{margin:0 0 18px;color:rgba(255,255,255,0.92);max-width:70%}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
+    .btn.cta-primary{background:var(--accent);color:#fff}
+    .btn.cta-ghost{background:transparent;border:1px solid rgba(255,255,255,0.18);color:#fff}
+    .hero .right{width:380px;min-width:260px}
+    .card-hero{background:rgba(255,255,255,0.06);padding:18px;border-radius:10px}
+    main{padding:40px 0}
+    .section{padding:36px 0}
+    h3{margin:0 0 12px;font-size:20px}
+    .intro{color:var(--muted);margin-bottom:18px}
+    /* services grid */
+    .grid {display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+    .service{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+    .service h4{margin:0 0 8px}
+    .service p{margin:0;color:var(--muted);font-size:14px}
+    /* packages */
+    .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .pkg{background:#fff;padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(12,20,30,0.04);border:1px solid rgba(10,30,60,0.03)}
+    .pkg h4{margin:0 0 6px}
+    .pkg ul{padding-left:16px;color:var(--muted);margin:8px 0 12px}
+    .pkg .price{font-size:20px;color:var(--blue-900);font-weight:800}
+    /* case studies */
+    .case-list{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .case{display:flex;gap:14px;background:#fff;padding:16px;border-radius:10px;align-items:center}
+    .case img{width:96px;height:64px;border-radius:8px;object-fit:cover}
+    .case p{margin:0;color:var(--muted)}
+    /* testimonials */
+    .testi{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 24px rgba(12,20,30,0.04)}
+    .clients{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+    .clients img{height:36px;opacity:0.9}
+    /* about */
+    .about{display:flex;gap:18px;align-items:center}
+    .about img{width:140px;height:140px;border-radius:8px;object-fit:cover}
+    /* contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .field{display:flex;flex-direction:column;margin-bottom:10px}
+    input,textarea,select{padding:10px;border-radius:8px;border:1px solid #e6e9ef}
+    textarea{min-height:120px}
+    .footer{background:#021b36;color:#fff;padding:26px 0;margin-top:40px}
+    .footer .foot-wrap{max-width:var(--container);margin:0 auto;padding:0 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    small{color:rgba(255,255,255,0.7)}
+    /* responsive */
+    @media (max-width:980px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .packages{grid-template-columns:repeat(2,1fr)}
+      .case-list{grid-template-columns:1fr}
+      .hero p{max-width:100%}
+    }
+    @media (max-width:640px){
+      nav{display:none}
+      .grid{grid-template-columns:1fr}
+      .packages{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .hero{flex-direction:column-reverse}
+      .hero .right{width:100%}
     }
   </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TechServices",
+  "url": "https://www.techservices.co.in",
+  "description": "SAP analytics consulting firm specializing in SAP Datasphere, SAP Analytics Cloud, SAP Business Data Cloud, SAP BusinessObjects, and S/4HANA Embedded Analytics.",
+  "founder": {
+    "@type": "Person",
+    "name": "Arvind Sharma"
+  },
+  "areaServed": "Global",
+  "serviceType": [
+    "SAP Datasphere Consulting",
+    "SAP Analytics Cloud Planning and Reporting",
+    "SAP BusinessObjects Support",
+    "SAP Analytics Managed Services"
+  ]
+}
+</script>
+
+  <script>
+    function sendMail() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const company = document.getElementById("company").value;
+      const project = document.getElementById("project").value;
+
+      const subject = encodeURIComponent("New Project Enquiry – TechServices Website");
+
+      const body = encodeURIComponent(
+        "New enquiry received from TechServices website\n\n" +
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Company: " + (company ? company : "Not provided") + "\n\n" +
+        "Project Details:\n" +
+        project + "\n\n" +
+        "----------------------------------\n" +
+        "This message was sent via the TechServices contact form."
+      );
+
+      window.location.href = 
+        "mailto:asharma@techservices.co.in" +
+        "?subject=" + subject +
+        "&body=" + body;
+    }
+  </script>
 </head>
 <body>
- <!-- HEADER -->
-  <header>
-    <div class="hero">
-      <img class="hero-img" src="../images/arvind.jpeg" alt="Arvind">
-      <div class="hero-content">
-    <h1>Implementation • Support • Training • Staffing</h1>
- 	<P>SAP Business Data Cloud, SAP Datasphere, SAP Analytics Clouds, SAP Business Objects</P>
+
+  <!-- Header -->
+  <header class="site" role="banner">
+    <div class="topbar">
+      <div class="brand">
+       <!-- Logo Section -->
+<img src="images/logo.jpeg" 
+     alt="TechServices SAP Analytics Consulting – SAP Datasphere and SAP Analytics Cloud Experts"
+     style="height:80px; width:auto;">
+     <div>
+          <h1>TechServices</h1>
+          <div style="font-size:12px;color:rgba(255,255,255,0.9)">SAP Analytics</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#services">Services</a>
+<!--        <a href="#packages">Packages</a>
+        <a href="#cases">Case Studies</a>
+-->
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="hero wrap" role="region" aria-label="Hero">
+      <div class="left">
+        <h1>SAP Analytics Consulting Services</h1>
+	<h2>Accelerating digital transformation with SAP analytics & data platforms</h2>
+
+        <p style="font-size:16px">We are a team of SAP consultants specialising in SAP Business Data Cloud, SAP Datasphere, SAP Analytics Cloud, SAP S/4HANA Embedded Analytics and SAP BusinessObjects — implementation, migration, optimization and long-term support.</p>
+
+        <div class="cta">
+          <button class="btn cta-primary" onclick="location.href='#contact'">Get a Consultation</button>
+          <button class="btn cta-ghost" onclick="location.href='#services'">View Services</button>
+        </div>
+
+        <div style="margin-top:18px;color:rgba(255,255,255,0.9);font-size:13px">Trusted by global enterprises — project, fractional CTO or long-term support</div>
+      </div>
+
+      <div class="right">
+        <div class="card-hero">
+          <strong>Quick Facts</strong>
+          <ul style="margin:10px 0 0;padding-left:18px;color:#e9f4ff">
+            <li>20+ years of enterprise IT & SAP experience</li>
+            <li>Flexible, remote-friendly engagement models</li>
+            <li>End-to-end delivery: Build → Run → Optimize</li>
+            <li>Global delivery experience with proven frameworks</li>
+          </ul>
+        </div>
       </div>
     </div>
   </header>
-  <!-- PageUnderConstruction -->
-    <section>
-    <p align="Center"><B>Page Under Construction</B>
-    </p> 
-    </section>  
 
-  <!-- CONTACT -->
-  <section>
-    <h2>Contact</h2>
-    <div class="contact-box">
-      <p><strong>Email:</strong> asharma@techservices.co.in</p>
-      <p><strong>Phone:</strong> +91‑9950280631</p>
-      <a class="button" href="mailto:asharma@techservices.co.in">Book a Free Consultation</a>
+  <!-- Main -->
+  <main class="wrap" role="main">
+    <!-- Services -->
+    <section id="services" class="section">
+      <h3>Our Services</h3>
+      <p class="intro">End-to-end SAP Analytics and Data Platform services — from architecture and implementation to migration and ongoing support.</p>
+
+      <div class="grid">
+        <div class="service">
+          <h4>SAP Datasphere Consulting & Implementation</h4>
+
+          <p align="justify">
+  End-to-end <strong>SAP Datasphere consulting and implementation</strong> services to build
+  a scalable and governed enterprise data foundation. We integrate SAP and non-SAP data,
+  design semantic models, and enable trusted analytics and planning in SAP Analytics Cloud.
+</p>
+        </div>
+        <div class="service">
+          <h4>SAP Analytics Cloud (SAC) – Reporting & Planning</h4>
+
+          <p align= "justify"><b>Reporting</b>: deliver end-to-end SAP Analytics Cloud (SAC) solutions for executive dashboards, operational reporting, and self-service analytics. Our focus is on performance, usability, and alignment with business KPIs.</p>  
+	<p align= "justify"> <b>Planning</b>: Implement SAC Planning solutions that enable integrated planning, budgeting, forecasting, and what-if simulations across Finance, Sales, and Operations.</p>
+        </div>
+        <div class="service">
+          <h4>SAP Business Data Cloud Consulting</h4>
+
+          <p align="justify">We help organizations adopt SAP Business Data Cloud to harmonize data across SAP and non-SAP
+          landscapes, enabling trusted, governed enterprise analytics and AI-ready data consumption.</p>
+        </div>
+        <div class="service">
+          <h4>SAP Business Objects implementation, Support & Migration</h4>
+
+          <p align = "justify">Upgrade, migration, WebI, universes and hybrid reporting impmentation and support.</p>
+        </div>
+        <div class="service">
+          <h4>Support & Managed Services</h4>
+          <p align="justify">provide reliable post-implementation support and managed services to ensure stability, performance, and continuous improvement of your 	analytics landscape.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case studies 
+    <section id="cases" class="section">
+      <h3>Selected Case Studies</h3>
+      <p class="intro">A few examples of recent engagements and outcomes.</p>
+
+      <div class="case-list">
+        <div class="case">
+          <img src="images/case1.png" alt="">
+          <div>
+            <strong>Datasphere migration — Manufacturing</strong>
+            <p>Consolidated multiple HANA sources into Datasphere, enabled Delta Sharing to Databricks and reduced query latency by 45%.</p>
+          </div>
+        </div>
+
+        <div class="case">
+          <img src="images/case2.png" alt="">
+          <div>
+            <strong>SAC Planning — Retail</strong>
+            <p>Implemented SAC planning models tied to S/4HANA embedded analytics for real-time plan vs actual.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+-->
+   <!-- Testimonials & Clients
+    <section class="section">
+      <h3>Testimonials & Clients</h3>
+      <p class="intro">We work with mid-market and enterprise customers worldwide.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
+        <div>
+          <div class="testi">
+            <p><strong>“TechServices helped us migrate our BW reports to SAC with zero downtime. Highly recommended.”</strong></p>
+            <p style="color:var(--muted)">— Head of BI, Global Manufacturer</p>
+          </div>
+        </div>
+
+        <aside>
+          <div style="background:#fff;padding:16px;border-radius:10px">
+            <div style="font-weight:700;margin-bottom:8px">Featured clients</div>
+            <div class="clients">
+              <img src="images/client1.png" alt="client">
+              <img src="images/client2.png" alt="client">
+              <img src="images/client3.png" alt="client">
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+-->
+    <!-- About -->
+    <section id="about" class="section">
+      <h3>About TechServices</h3>
+      <div class="about" style="gap:20px">
+        <img src="images/arvind.jpeg" 
+     alt="Arvind Sharma, SAP Analytics Consultant with expertise in SAP Datasphere and SAP Analytics Cloud">
+
+        <div>
+<meta name="description" content="TechServices is a SAP analytics consulting firm specializing in SAP Datasphere, SAP Analytics Cloud, S/4HANA Embedded Analytics, SAP BusinessObjects, and enterprise reporting, planning, and support services.">
+
+          <p class="intro">TechServices is a specialized SAP analytics consulting firm delivering enterprise-grade data and analytics solutions. Led by experienced SAP architects and senior consultants, we design, implement, and support scalable, secure, and governed analytics platforms using SAP Datasphere, SAP Analytics Cloud (Reporting and Planning), SAP S/4HANA Embedded Analytics, SAP BusinessObjects, and SAP Business Data Cloud.</p>
+          <p style="margin-top:10px;color:var(--muted)">Founder: Arvind Sharma - 20+ years in SAP Analytics. 
+<!--Email: <a href="mailto:asharma@techservices.co.in">asharma@techservices.co.in</a> -->
+</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog teaser 
+    <section class="section">
+      <h3>From the Blog</h3>
+      <p class="intro">Technical notes and best practices.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <article style="background:#fff;padding:16px;border-radius:10px">
+          <h4>Best practices for Datasphere replication</h4>
+          <p style="color:var(--muted);margin:8px 0">How to optimize replication flows and avoid common network issues.</p>
+          <a href="#" style="font-weight:700;color:var(--blue-900)">Read more →</a>
+        </article>
+
+        <article style="background:#fff;padding:16px;border-radius:10px">
+          <h4>Creating live models in SAC</h4>
+          <p style="color:var(--muted);margin:8px 0">A guide to building performant live models backed by Datasphere.</p>
+          <a href="#" style="font-weight:700;color:var(--blue-900)">Read more →</a>
+        </article>
+      </div>
+    </section>
+-->
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <h3>Contact Us</h3>
+      <p class="intro">Tell us about your project, we’ll follow up within 48 hours.</p>
+<!--      <div class="contact-grid">
+        <div style="background:#fff;padding:18px;border-radius:10px">
+          <form id="contactForm" method="POST" action="#" onsubmit="event.preventDefault();alert('Thanks — message received.');">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" required placeholder="Your full name">
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@company.com">
+            </div>
+
+            <div class="field">
+              <label for="company">Company</label>
+              <input id="company" name="company" placeholder="Company name">
+            </div>
+
+            <div class="field">
+              <label for="message">Project details</label>
+              <textarea id="message" name="message" placeholder="Brief description"></textarea>
+            </div>
+
+            <div style="display:flex;gap:12px;align-items:center">
+              <button class="btn cta-primary" type="submit">Send Message</button>
+		
+              <a class="btn" href="mailto:asharma@techservices.co.in">Email Us</a>
+            </div>
+          </form>
+        </div>
+-->
+        <aside style="background:linear-gradient(180deg,#fff, #f1f6fb);padding:18px;border-radius:10px">
+          <h4>Get in touch</h4>
+          <p style="color:var(--muted)">Email: <a href="mailto:asharma@techservices.co.in">asharma@techservices.co.in</a><br>Phone: +91-99502-80631</p>
+        </aside>
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="foot-wrap">
+      <div>
+        <strong>TechServices</strong>
+        <div style="margin-top:6px"><small>© <span id="year"></span> TechServices. All rights reserved.</small></div>
+      </div>
+      <div>
+        <small>Designed for SAP Analytics consulting • <a href="#contact" style="color:#fff;text-decoration:underline">Contact</a></small>
+      </div>
     </div>
-  </section>
-  <footer>
-    © 2025 SAP Analytics Tech Services
   </footer>
-</body>
 
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // small helper: replace logo and images if missing
+    document.querySelectorAll('img').forEach(img=>{
+      img.onerror = ()=>{ img.src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200"><rect width="100%" height="100%" fill="%23e6eefb"/><text x="50%" y="50%" font-size="14" dominant-baseline="middle" text-anchor="middle" fill="%23364f86">Placeholder</text></svg>'}
+    })
+  </script>
+</body>
 </html>
